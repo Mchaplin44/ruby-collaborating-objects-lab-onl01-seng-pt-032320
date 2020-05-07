@@ -25,11 +25,24 @@ class Artist
   end
 
   def self.find_or_create_by_name(name)
-   temp_artist = self.all.find do |artist_obj|
-     artist_obj.name == name
-    
+    temp_artist = self.all.find do |artist_oj|
+      artist_oj.name  == name
+    end
+    if temp_artist 
+      temp_artist
+    else
+      Artist.new(name)
+    end 
    end
-end
+  
+  def print_songs
+    self.songs.each do |song| 
+  puts song.name
+ end 
+ 
+    
+  end
+  
 end
 
 
